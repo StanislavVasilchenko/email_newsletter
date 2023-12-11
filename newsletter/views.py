@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView, ListView
+from django.urls import reverse, reverse_lazy
+from django.views.generic import TemplateView, ListView, CreateView
 
 from newsletter.models import Client
 
@@ -10,3 +11,9 @@ class IndexView(TemplateView):
 
 class ClientListView(ListView):
     model = Client
+
+
+class ClientCreateView(CreateView):
+    model = Client
+    fields = ('full_name', 'email', 'comment')
+    success_url = reverse_lazy('newsletter:clients')

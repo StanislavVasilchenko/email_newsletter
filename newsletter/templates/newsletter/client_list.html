@@ -1,30 +1,35 @@
 {% extends 'newsletter/base.html' %}
 {% block content %}
     <p class="d-inline-flex gap-1">
-        <a class="btn btn-success" data-bs-toggle="collapse" href="#" role="button" aria-expanded="false"
+        <a class="btn btn-success" data-bs-toggle="collapse" href="{% url 'newsletter:client_create' %}" role="button"
+           aria-expanded="false"
            aria-controls="collapseExample">
             Добавить клиента
         </a>
     </p>
-    {% for object in object_list %}
-        <table class="table">
-            <thead>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">ФИО</th>
+            <th scope="col">email</th>
+            <th scope="col">Комментарий</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for object in object_list %}
             <tr>
-                <th scope="col">id</th>
-                <th scope="col">ФИО</th>
-                <th scope="col">email</th>
-                <th scope="col">Комментарий</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
+
                 <th scope="row">{{ object.pk }}</th>
                 <td><a href="#">{{ object.full_name }}</a></td>
                 <td>{{ object.email }}</td>
                 <td>{{ object.comment }}</td>
                 <td>Удалить</td>
+
             </tr>
-            </tbody>
-        </table>
-    {% endfor %}
+        {% endfor %}
+        </tbody>
+    </table>
+
 {% endblock %}
