@@ -16,7 +16,7 @@
             <td>{{ object.full_name }}</td>
             <td>{{ object.email }}</td>
             <td>{{ object.comment }}</td>
-            <td><a href="#">Изменить</a></td>
+            <td><a href="{% url 'newsletter:client_update' object.pk %}">Изменить</a></td>
         </tr>
         </tbody>
     </table>
