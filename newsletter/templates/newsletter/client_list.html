@@ -22,7 +22,7 @@
             <tr>
 
                 <th scope="row">{{ object.pk }}</th>
-                <td><a href="#">{{ object.full_name }}</a></td>
+                <td><a href="{% url 'newsletter:client_detail' object.pk %}">{{ object.full_name }}</a></td>
                 <td>{{ object.email }}</td>
                 <td>{{ object.comment }}</td>
                 <td>Удалить</td>
