@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
 from django.views.generic import TemplateView, ListView, CreateView, DetailView, UpdateView, DeleteView
 
-from newsletter.models import Client
+from newsletter.models import Client, MailDeliverySettings
 
 
 class IndexView(TemplateView):
@@ -18,12 +18,6 @@ class IndexView(TemplateView):
 
 class ClientListView(ListView):
     model = Client
-
-    # def get_context_data(self, **kwargs):
-    #     context_data = super().get_context_data()
-    #     count = 0
-    #     context_data['count'] = count + 1
-    #     return context_data
 
 
 class ClientCreateView(CreateView):
@@ -46,4 +40,10 @@ class ClientUpdateView(UpdateView):
 
 class ClientDeleteView(DeleteView):
     model = Client
+    success_url = reverse_lazy('newsletter:clients')
+
+
+class MailDeliverySettingsCreateView(CreateView):
+    model = MailDeliverySettings
+    fields = ('time_start', 'time_stop', 'periodicity', 'subject', 'message')
     success_url = reverse_lazy('newsletter:clients')
