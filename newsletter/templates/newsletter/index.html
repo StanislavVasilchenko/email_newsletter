@@ -30,7 +30,7 @@
             <div class="col text-lg-right">
                 <nav class="d-inline-flex mt-2 mt-md-0 align-items-md-end">
                     <a class="mr-md-4 py-2 link-body-emphasis text-decoration-none" href="{% url 'newsletter:clients' %}">Клиенты</a>
-                    <a class="mr-md-4 py-2 link-body-emphasis text-decoration-none" href="#">Рассылки</a>
+                    <a class="mr-md-4 py-2 link-body-emphasis text-decoration-none" href="{% url 'newsletter:delivery_view' %}">Рассылки</a>
                     <a class="mr-md-4 py-2 link-body-emphasis text-decoration-none" href="#">Блог</a>
                 </nav>
             </div>
@@ -79,7 +79,7 @@
                             <li>Phone and email support</li>
                             <li>Help center access</li>
                         </ul>
-                        <button type="button" class="w-100 btn btn-lg btn-primary">К рассылкам</button>
+                        <a href="{% url 'newsletter:delivery_view' %}" type="button" class="w-100 btn btn-lg btn-primary">К рассылкам</a>
                     </div>
                 </div>
             </div>

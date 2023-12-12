@@ -34,7 +34,7 @@ class MailDeliverySettings(models.Model):
         (DAY, 'Раз в день'),
         (WEEK, 'Раз в неделю')
     ]
-
+    name = models.CharField(max_length=150, verbose_name='Название рассылки', blank=True, null=True)
     time_start = models.DateTimeField(verbose_name='Начало рассылки')
     time_stop = models.DateTimeField(verbose_name='Окончание рассылки')
     periodicity = models.CharField(max_length=70, choices=PERIODICITY_CHOICE, verbose_name='Периодичность рассылки')
