@@ -51,3 +51,11 @@ class MailDeliverySettingsCreateView(CreateView):
 
 class MailDeliverySettingsListView(ListView):
     model = MailDeliverySettings
+
+
+class MailDeliverySettingsDetailView(DetailView):
+    model = MailDeliverySettings
+
+
+
+

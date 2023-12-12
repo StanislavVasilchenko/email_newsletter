@@ -21,7 +21,7 @@
             <tr>
 
                 <th scope="row">{{ forloop.counter }}</th>
-                <td>{{ object.name }}</td>
+                <td><a href="{% url 'newsletter:delivery_detail' object.pk %}">{{ object.name }}</a></td>
                 <td>{{ object.status }}</td>
 
             </tr>
