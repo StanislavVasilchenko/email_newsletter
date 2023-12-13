@@ -64,3 +64,8 @@ class MailDeliverySettingsUpdateView(UpdateView):
 
     def get_success_url(self):
         return reverse('newsletter:delivery_detail', args=[self.kwargs.get('pk')])
+
+
+class MailDeliverySettingsDeleteView(DeleteView):
+    model = MailDeliverySettings
+    success_url = reverse_lazy('newsletter:delivery_view')

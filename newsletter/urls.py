@@ -3,7 +3,8 @@ from django.urls import path
 from newsletter.apps import NewsletterConfig
 from newsletter.views import (IndexView, ClientListView, ClientCreateView,
                               ClientDetailView, ClientUpdateView, ClientDeleteView, MailDeliverySettingsCreateView,
-                              MailDeliverySettingsListView, MailDeliverySettingsDetailView, MailDeliverySettingsUpdateView)
+                              MailDeliverySettingsListView, MailDeliverySettingsDetailView,
+                              MailDeliverySettingsUpdateView,MailDeliverySettingsDeleteView)
 
 app_name = NewsletterConfig.name
 
@@ -18,4 +19,5 @@ urlpatterns = [
     path('delivery_view/', MailDeliverySettingsListView.as_view(), name='delivery_view'),
     path('delivery_detail/<int:pk>', MailDeliverySettingsDetailView.as_view(), name='delivery_detail'),
     path('delivery_update/<int:pk>', MailDeliverySettingsUpdateView.as_view(), name='delivery_update'),
+    path('delivery_delete/<int:pk>', MailDeliverySettingsDeleteView.as_view(), name='delivery_delete'),
 ]

@@ -25,7 +25,7 @@
             <td>{{ object.subject }}</td>
             <td>{{ object.message }}</td>
             <td><a href="{% url 'newsletter:delivery_update' object.pk %}">Изменить</a></td>
-            <td><a href="#">Удалить</a></td>
+            <td><a href="{% url 'newsletter:delivery_delete' object.pk %}">Удалить</a></td>
 
         </tr>
 
