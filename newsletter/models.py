@@ -42,8 +42,6 @@ class MailDeliverySettings(models.Model):
     subject = models.CharField(max_length=255, verbose_name='Тема письма')
     message = models.TextField(verbose_name='Тело письма')
 
-    client = models.ManyToManyField(Client, verbose_name='Клиенты рассылки')
-
     def __str__(self):
         return f'{self.status} - ({self.subject})'
 
