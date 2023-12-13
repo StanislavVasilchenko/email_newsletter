@@ -57,5 +57,10 @@ class MailDeliverySettingsDetailView(DetailView):
     model = MailDeliverySettings
 
 
+class MailDeliverySettingsUpdateView(UpdateView):
+    model = MailDeliverySettings
+    fields = ('name', 'time_start', 'time_stop', 'periodicity', 'subject', 'message')
+    success_url = reverse_lazy('newsletter:delivery_detail')
 
-
+    def get_success_url(self):
+        return reverse('newsletter:delivery_detail', args=[self.kwargs.get('pk')])
