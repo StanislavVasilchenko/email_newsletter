@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 from secrets_keys import DB_PASSWORD, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD, EMAIL_HOST
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -30,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'django_crontab',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -107,7 +109,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'ru-ru'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Moscow'
 
 USE_I18N = True
 
@@ -132,4 +134,10 @@ EMAIL_HOST = EMAIL_HOST
 EMAIL_PORT = 465
 EMAIL_HOST_USER = EMAIL_HOST_USER
 EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD
-EMAIL_USE_TLS = True
+EMAIL_USE_SSL = True
+
+CRONJOBS = [
+    ('*/1 * * * *', 'newsletter.cron.make_newsletter_hour'),
+    ('*/3 * * * *', 'newsletter.cron.make_newsletter_day'),
+    ('*/5 * * * *', 'newsletter.cron.make_newsletter_week'),
+]

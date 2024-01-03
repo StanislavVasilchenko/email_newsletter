@@ -46,7 +46,12 @@ class ClientDeleteView(DeleteView):
 class MailDeliverySettingsCreateView(CreateView):
     model = MailDeliverySettings
     fields = ('name', 'time_start', 'time_stop', 'periodicity', 'subject', 'message')
-    success_url = reverse_lazy('newsletter:clients')
+    success_url = reverse_lazy('newsletter:delivery_view')
+
+    # def form_valid(self, form):
+    #     obj = form.save()
+    #     make_newsletter()
+    #     return super().form_valid(form)
 
 
 class MailDeliverySettingsListView(ListView):
